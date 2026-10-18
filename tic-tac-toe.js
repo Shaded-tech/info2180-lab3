@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     let squares = document.querySelectorAll("#board div");
 
-    let currentPlayer = "x";
+    let currentPlayer = "X";
     let board = [];
 
     squares.forEach(function (square) {
         square.classList.add("square");
+
+        square.addEventListener("mouseenter", function () {
+
+            square.classList.add("hover")
+
+        });
+
+        square.addEventListener("mouseleave", function () {
+
+            square.classList.remove("hover")
+
+        })
 
         square.addEventListener('click', function () {
             if (square.textContent !== "") return;
@@ -14,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             square.classList.add(currentPlayer);
 
-            currentPlayer = currentPlayer === "x" ? "o" : "x";
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
 
         });
     });
